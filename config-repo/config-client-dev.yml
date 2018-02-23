@@ -1,0 +1,61 @@
+######  db config start ######
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.70.99:3306/pms-test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: rrTX@2018
+    druid:
+    ######  db console start ######
+    #是否启用StatViewServlet默认值true
+      stat-view-servlet:
+        enabled: true
+        reset-enable: true
+        login-username: admin
+        login-password: rrtx-dev
+    ######  db console end ######
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 6000
+      time-between-eviction-runs-millis: 600000
+      min-evictable-idle-time-millis: 600000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      filters: stat,wall
+      #是1.1.4中新增加的配置，如果有initialSize数量较多时，打开会加快应用启动时间
+      async-init: true
+######  db config end ######
+
+######   Redis config start ######
+  redis:
+    database: 0
+    #自定义key存放session的redis数据库
+    session-database: 1
+    host: 124.204.54.215
+#    host: 192.168.70.168
+    port: 6379
+    password:
+    pool:
+      max-active: 20
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 100
+    #配置session超时时间
+    session-expire: 180
+######   Redis config end ######
+
+######   logging config start ######
+logging:
+  file: /usr/local/fap-runtime/logs/tomcat-bussiness/web-base.log
+  level:
+    root: info
+    com.rrtx.pms: debug
+    org.springframework.web: info
+######   logging config end ######

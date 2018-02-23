@@ -6,8 +6,6 @@ spring:
       server:
         git:
           uri: https://github.com/zackor/springCloudDemo
-          username: zackor@163.com
-          password: 123qweASD
           search-paths: config-repo
 
 server:
