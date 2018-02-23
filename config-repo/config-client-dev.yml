@@ -60,4 +60,4 @@ logging:
     org.springframework.web: info
 ######   logging config end ######
 user:
-  name: zackor
+  name: my name is zackor
