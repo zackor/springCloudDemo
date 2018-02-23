@@ -43,3 +43,5 @@ target/
 #system ignore
 .DS_Store
 Thumbs.db
+!/config-server-git/mvnw
+!/config-server-git/mvnw.cmd
